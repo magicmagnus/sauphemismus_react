@@ -49,13 +49,6 @@ export function parsePixabayImages(data) {
         return null;
     }
     const randomIndex = Math.floor(Math.random() * data.hits.length);
-    console.log("Pixabay hits length:", data.hits.length);
-    console.log(
-        "index:",
-        randomIndex,
-        "url:",
-        data.hits[randomIndex].largeImageURL,
-    );
 
     return data.hits[randomIndex].largeImageURL;
 }

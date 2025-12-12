@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import {
     queryHuggingFaceTextGeneration,
     queryHuggingFaceTokenClassification,
@@ -12,9 +12,12 @@ import {
 } from "./utils/utils";
 import themedata from "./data/data.json";
 
-const data = themedata.faktemismus;
-
 function App() {
+    const [currentTheme, setCurrentTheme] = useState({
+        name: "sauphemismus",
+        data: themedata.sauphemismus,
+    });
+
     const [generatedTextMain, setGeneratedTextMain] = useState({
         text: null,
         pos: null,
@@ -30,9 +33,14 @@ function App() {
     const [isBufferLoading, setIsBufferLoading] = useState(false);
 
     // on first load, start loading buffer
+    // useEffect(() => {
+    //     loadBuffer();
+    // }, []);
+
     useEffect(() => {
+        console.log("Current theme changed to:", currentTheme.name);
         loadBuffer();
-    }, []);
+    }, [currentTheme]);
 
     // when buffer finishes loading and main is (loading or empty), update main first, then start loading next buffer
     useEffect(() => {
@@ -54,52 +62,106 @@ function App() {
 
     const loadBuffer = () => {
         setIsBufferLoading(true);
-        // first fetch the generated text (the main output)
-        data.requestData.inputs = createInputPrompt(data.inputPromptArray);
-        queryHuggingFaceTextGeneration(data.requestData).then((result) => {
-            var result_text = parseGeneratedText(
-                result.generated_text,
-                data.splitChar,
-            );
-            console.log("loadBuffer result:", result_text);
+        if (["sauphemismus", "pilzfinder"].includes(currentTheme.name)) {
+            loadBufferWithoutPOS();
+        } else {
+            loadBufferWithPOS();
+        }
+    };
 
-            if (result_text.startsWith(".")) {
-                console.log("Skipping invalid result, loading again.");
-                loadBuffer();
-                return;
-            }
-            fetchTranslation(result_text).then((translation) => {
-                console.log("Translation result:", translation);
+    const loadBufferWithPOS = () => {
+        setIsBufferLoading(true);
+        // step 1: first fetch the generated text (the main output)
+        currentTheme.data.requestData.inputs = createInputPrompt(
+            currentTheme.data.inputPromptArray,
+        );
+        queryHuggingFaceTextGeneration(currentTheme.data.requestData).then(
+            (raw_result_text) => {
+                var result_text = parseGeneratedText(
+                    raw_result_text.generated_text,
+                    currentTheme.data.splitChar,
+                );
+                //console.log("loadBuffer result:", result_text);
 
-                // then fetch the POS (NOUN, VERB, etc.) for that text
-                queryHuggingFaceTokenClassification({
-                    model: "vblagoje/bert-english-uncased-finetuned-pos",
-                    inputs: translation,
-                    provider: "auto",
-                }).then((result) => {
-                    var result_pos = parsePosToKeywords(
-                        result,
-                        data.fallbackKeyword,
-                    );
-                    console.log("POS result:", result_pos);
-                    // finally fetch images from pixabay for that POS keywords
+                if (result_text.startsWith(".")) {
+                    console.log("Skipping invalid result, loading again.");
+                    loadBuffer();
+                    return;
+                }
+                // step 1.5:  translate result_text to english cause the POS model is english-only
+                fetchTranslation(result_text).then((result_translation) => {
+                    //console.log("Translation result:", result_translation);
 
-                    var image_url = null;
-
-                    fetchPixabayImages(result_pos, data.fallbackKeyword).then(
-                        (response) => {
-                            image_url = response;
+                    // step 2:  fetch the POS (NOUN, VERB, etc.) for that (translated) text
+                    queryHuggingFaceTokenClassification({
+                        model: "vblagoje/bert-english-uncased-finetuned-pos",
+                        inputs: result_translation,
+                        provider: "auto",
+                    }).then((raw_result_pos) => {
+                        var result_pos = parsePosToKeywords(
+                            raw_result_pos,
+                            currentTheme.data.fallbackKeyword,
+                        );
+                        //console.log("POS result:", result_pos);
+                        // step 3: finally fetch images from pixabay for the POS keywords
+                        fetchPixabayImages(
+                            result_pos,
+                            currentTheme.data.fallbackKeyword,
+                        ).then((image_url) => {
+                            console.log("final buffer:", {
+                                text: result_text,
+                                pos: result_pos,
+                                image: image_url,
+                            });
                             setGeneratedTextBuffer({
                                 text: result_text,
                                 pos: result_pos,
                                 image: image_url,
                             });
                             setIsBufferLoading(false);
-                        },
-                    );
+                        });
+                    });
                 });
-            });
-        });
+            },
+        );
+    };
+
+    const loadBufferWithoutPOS = () => {
+        setIsBufferLoading(true);
+        // step 1: first fetch the generated text (the main output)
+        currentTheme.data.requestData.inputs = createInputPrompt(
+            currentTheme.data.inputPromptArray,
+        );
+        queryHuggingFaceTextGeneration(currentTheme.data.requestData).then(
+            (raw_result_text) => {
+                var result_text = parseGeneratedText(
+                    raw_result_text.generated_text,
+                    currentTheme.data.splitChar,
+                );
+                //console.log("loadBuffer result:", result_text);
+
+                if (result_text.startsWith(".")) {
+                    console.log("Skipping invalid result, loading again.");
+                    loadBuffer();
+                    return;
+                }
+
+                fetchPixabayImages(
+                    "beer",
+                    currentTheme.data.fallbackKeyword,
+                ).then((image_url) => {
+                    console.log("final buffer:", {
+                        text: result_text,
+                        image: image_url,
+                    });
+                    setGeneratedTextBuffer({
+                        text: result_text,
+                        image: image_url,
+                    });
+                    setIsBufferLoading(false);
+                });
+            },
+        );
     };
 
     const handleClick = () => {
@@ -112,11 +174,33 @@ function App() {
         loadBuffer();
     };
 
+    const handleThemeChange = (newTheme) => {
+        const newThemeData = {
+            name: newTheme,
+            data: themedata[newTheme],
+        };
+
+        setCurrentTheme(newThemeData);
+
+        setGeneratedTextMain({
+            text: null,
+            pos: null,
+            image: null,
+        });
+        setGeneratedTextBuffer({
+            text: null,
+            pos: null,
+            image: null,
+        });
+    };
+
     return (
         <div className="flex min-h-screen flex-col items-center justify-start gap-16 bg-linear-to-b from-blue-200 to-blue-400 p-20">
-            <h1 className="flex text-3xl font-bold">Sauphemismus Tester</h1>
+            <h1 className="flex text-3xl font-bold">
+                {currentTheme.data.pageTitle}
+            </h1>
 
-            <div className="flex min-h-[900px] w-fit flex-col items-center gap-8">
+            <div className="flex min-h-150 w-fit flex-col items-center gap-8">
                 <h2 className="text-2xl italic">
                     Main: loading == {String(isMainLoading)}
                 </h2>
@@ -129,7 +213,7 @@ function App() {
                             <p className="text-xl wrap-break-word">
                                 {generatedTextMain.text}
                                 {generatedTextMain.text != null &&
-                                    data.generatedTextSuffix}
+                                    currentTheme.data.generatedTextSuffix}
                             </p>
                         </div>
                         <div className="flex flex-1 flex-col overflow-hidden">
@@ -160,7 +244,7 @@ function App() {
                             <p className="text-xl wrap-break-word">
                                 {generatedTextBuffer.text}
                                 {generatedTextBuffer.text != null &&
-                                    data.generatedTextSuffix}
+                                    currentTheme.data.generatedTextSuffix}
                             </p>
                         </div>
                         <div className="flex flex-1 flex-col overflow-hidden">
@@ -181,8 +265,34 @@ function App() {
                 )}
             </div>
             <button className="bg-blue-100 p-3 text-2xl" onClick={handleClick}>
-                {data.generateButtonText}
+                {currentTheme.data.generateButtonText}
             </button>
+            <nav className="flex justify-center gap-4">
+                <button
+                    className="bg-green-200 p-3 text-xl"
+                    onClick={() => {
+                        handleThemeChange("sauphemismus");
+                    }}
+                >
+                    Sauphemismus
+                </button>
+                <button
+                    className="bg-green-200 p-3 text-xl"
+                    onClick={() => {
+                        handleThemeChange("faktemismus");
+                    }}
+                >
+                    Faktemismus
+                </button>
+                <button
+                    className="bg-green-200 p-3 text-xl"
+                    onClick={() => {
+                        handleThemeChange("sprichworte");
+                    }}
+                >
+                    Sprichworte
+                </button>
+            </nav>
         </div>
     );
 }
