@@ -1,0 +1,85 @@
+{
+    "sauphemismus": {
+        "requestData": {
+            "model": "DiscoResearch/Llama3-German-8B",
+            "provider": "featherless-ai",
+            "inputs": "sich amtlich einen umzuhängen*sich einen hinter die Brust gleiten zu lassen*sich als einen Knacker zu bezeichnen*sich die Brause schütteln zu lassen*sich beinahe einen zu pummeln*sich einen steinernen Doktor zu adeln*sich ein Züchtbier zu servieren*sich eine harmonische Halbe zu vollfüllen*sich in ein Langwasser übertaumeln zu lassen*sich einen in die Fresse schäumen zu lassen*sich den Kopf umzurühren*sich die Wäsche abziehen zu lassen*sich glimpflich die Säfte zu mischen*sich einen in die Schüssel zu rühren*sich einen aufsteigen zu lassen*sich den Kübel zu düngen *sich einen in den Hals zu schütten*sich die Konserven zu öffnen*sich die Latschen besudeln zu lassen*sich einen in die Schädelhöhle zu rühren*sich ordentlich einen reinzulöten*sich wie ein Achtarmiger einen reinzuorgeln*sich einen hinter die Rüstung zu römern*sich ein Export zu importieren*sich einen aus der Fassung zu befreien*sich den Helm zu lackieren*sich die Kontakte feucht zu legen*sich einen Henkel vom Humpen zu brechen*sich den Schädel zu fluten*sich einen hinter die Kiemen zu peitschen*",
+            "max_tokens": 50,
+            "temperature": 0.7
+        },
+        "splitChar": "*",
+        "generateButtonText": "Hey, Bock heute Abend ...",
+        "pageTitle": "Sauphemismus Tester",
+        "generatedTextSuffix": "?",
+        "fallbackKeyword": "beer"
+    },
+    "sprichworte": {
+        "requestData": {
+            "model": "DiscoResearch/Llama3-German-8B",
+            "provider": "featherless-ai",
+            "inputs": "Da wird der Hund in der Pfanne verrückt*Jetzt lass mal die Kirche im Dorf*Der frühe Vogel fängt den Wurm*Auch ein blindes Huhn findet mal ein Korn*Einem geschenkten Gaul schaut man nicht ins Maul*Die Katze aus dem Sack lassen*Was der Bauer nicht kennt, frisst er nicht*Drei Bier sind eine Mahlzeit und dann hat man noch nichts getrunken*Lieber 'nen Spatz auf der Hand als ne Taube auf dem Dach*Morgenstund hat Gold im Mund*Müßiggang ist aller Laster Anfang*Liebe geht durch den Magen*Das Auge isst mit*Tübingen ist ein Dorf*Wer schön sein will, muss leiden*Ist die Katze aus dem Haus, tanzen die Mäuse auf dem Tisch*Wer im Glashaus sitzt soll nicht im Dunkeln scheißen*Kleinvieh macht auch Mist*Reden ist Silber, Schweigen ist Gold*Eine Hand wäscht die andere*Unkraut vergeht nicht*Wer den Pfennig nicht ehrt, ist des Talers nicht wert*Pech im Spiel, Glück in der Liebe*Viele Köche verderben den Brei*Lügen haben kurze Beine*Gelegenheit macht Diebe*Der Apfel fällt nicht weit vom Stamm*Wie man in den Wald hineinruft, so schallt es heraus*",
+            "max_tokens": 50,
+            "temperature": 0.7
+        },
+        "splitChar": "*",
+        "generateButtonText": "Erleuchte mich mit einem Sprichwort ...",
+        "pageTitle": "Sprichwörter",
+        "generatedTextSuffix": "",
+        "fallbackKeyword": "nature"
+    },
+    "faktemismus": {
+        "requestData": {
+            "model": "DiscoResearch/Llama3-German-8B",
+            "provider": "featherless-ai",
+            "inputs": "",
+            "max_tokens": 90,
+            "temperature": 0.7
+        },
+        "inputPromptArray": [
+            "Die Trompete wurde nach ihrem Erfinder Pete Trom benannt",
+            "Der Kölner Karneval wurde 1811 ursprünglich erfunden, um einem Produktionsüberschuss in der lokalen Alkoholindustrie entgegenzuwirken",
+            "Das größte Paradoxon der Welt ist kleiner als das zweitgrößte",
+            "Die meisten Menschen haben mehr als zwei Arme",
+            "Shrek ist der einzige Disneyfilm, in dem der Protagonist eine blaue Hautfarbe hat",
+            "Historiker rätseln bis heute, ob zuerst der Brief oder der Briefkasten erfunden wurde",
+            "Wenn man bei zu schnellem Rückwärtsfahren geblitzt wird, werden einem Punkte in Flensburg abgezogen",
+            "Wenn man keine Handcreme zu Hause hat, kann man trockene Hande auch mit Semmelbroseln einreiben. Es wird nur nicht helfen",
+            "Die Erdatmosphäre besteht zu 100 Prozent aus Luft",
+            "Regenbögen sind eigentlich schwarz-weiß. Unsere Augen bilden sich bloß ein, dass sie bunt sind, weil sie dadurch viel schöner aussehen",
+            "Vampire schmecken nach Lachs, Werwolfe dagegen eher nach Hühnchen mit Erdnusssoße",
+            "Jede Stadt besteht aus genau vier Vierteln",
+            "Bei der Herstellung von Glas werden ausschließlich unsichtbare Bestandteile verarbeitet",
+            "Mit den ersten Lichtstrahlen des anbrechendes Tages zerfallen Bäcker zu Mehlstaub",
+            "Die ursprüngliche Version des Caipirinha enthielt pro Glas 1-2 Piranhas. Diese werden heutzutage aus versicherungstechnischen Gründen in der Regel durch Limettenstücke ersetzt",
+            "Ein Wesen von kleiner bis mittlerer Große ohne ein besonders erschreckendes Äußeres nennt man \"Getüm\"",
+            "Bevor es eine öffentliche Müllabfuhr gab, mussten alle ihren Abfall mit der Post zur Mülldeponie schicken",
+            "Frisch gepresster Zitronensaft ist im Kühlschrank 1-2 Tage haltbar. Für längere Haltbarkeit kann man zur Konservierung einen Spritzer Zitronensaft dazu geben",
+            "Bis 1987 war es in Mehrfamilienhausern Pflicht, neben einem Hausmeister noch einen Hausvizemeister zu haben",
+            "Ein Tischler kann keine Stühle anfertigen",
+            "Beim Schach gibt es genau 92 (also 7^3) mögliche Spielzüge",
+            "In manchen Gegenden von Vietnam soll es Glück bringen, sich an einer roten Ampel von einem Feuerwehrauto überfahren zu lassen",
+            "Der Rührbesen, das Rührei und der Rührteig wurden im Rührgebiet erfunden",
+            "Als der Erfinder des Wartezimmers seine Erfindung patentieren lassen wollte, ging er direkt in das Büro des Patenbeamten",
+            "Küchenmesser haben in anderen Räumen nur 30-40 % ihrer Schneidekraft",
+            "Eine Studie der Universitat Wien fand heraus, dass Männer, die zwischen Januar und Dezember geboren werden, eine höhere Wahrscheinlichkeit haben, Linkshander zu sein",
+            "Jeder Mensch ist pro Tag für 0,0057 Sekunden unsichtbar",
+            "Wenn die eigene Schwester einen Jungen zur Welt bringt, dann wird man Onkel. Wenn es jedoch ein Mädchen ist, wird man Tante",
+            "Niederländer sind genetisch nicht dazu in der Lage, auf Berge zu klettern",
+            "Aus Larmschutzgrunden darf man nach 21 Uhr sowie am Wochenende nicht mit Kanonen auf Spatzen schießen",
+            "Einen zwolfseitigen Supermarkt nennen Mathematiker Dodekaedeka",
+            "Das Adelsgeschlecht der Thurn und Taxis begründete ihr Vermögen mit dem Betrieb von Sporthallen und zahlreichen Mietwagenunternehmen",
+            "Vor der Einführung der Kartoffel wurden Pommes in Europa aus Baumrinde hergestellt",
+            "Briefumschläge werden knuspriger, wenn man das Porto erst nach dem Pürieren aufklebt",
+            "Nicht einmal ein Zehntel aller in Deutschland verkauften Brausekopfdichtungen stammt aus natürlichem Anbau",
+            "Im Jahr 791 n. Chr. wurde die bis dahin in Mitteleuropa gängige Praxis verboten. Kinder in Kessel mit Zaubertrank zu werfen, damit sie Superkräfte erhalten",
+            "Seit 1977 gelten Kamele in der Antarktis als ausgerottet",
+            "Das Wort \"Mörtel\" haben sich Bauarbeiter im 17. Jahrhundert ausgedacht, weil sie keine Lust mehr hatten, ständig, \"Mauersteinverbundpaste\" zu sagen",
+            "Walnüsse schlafen immer nur mit einer Nusshälfte, während die andere wach ist"
+        ],
+        "splitChar": "*",
+        "generateButtonText": "Erleuchte mich mit einem Sprichwort ...",
+        "pageTitle": "Sprichwörter",
+        "generatedTextSuffix": ".",
+        "fallbackKeyword": "nature"
+    }
+}
