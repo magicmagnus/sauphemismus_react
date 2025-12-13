@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@keyframes typewriter-dots {
+
+    0%,
+    16% {
+        opacity: 0;
+    }
+
+    20%,
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes typewriter-reset {
+
+    0%,
+    90% {
+        opacity: 1;
+    }
+
+    91%,
+    100% {
+        opacity: 0;
+    }
+}

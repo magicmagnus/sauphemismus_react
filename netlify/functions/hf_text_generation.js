@@ -23,6 +23,7 @@ exports.handler = async (event, context) => {
     try {
         const client = new InferenceClient(process.env.HUGGINGFACE_KEY);
         const requestData = JSON.parse(event.body);
+        //console.log("Received request data:", requestData);
 
         const output = await client.textGeneration(requestData);
 

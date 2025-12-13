@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import themedata from "../data/data.json";
 import { Outlet, useOutletContext } from "react-router-dom";
+import { SyncLoader } from "react-spinners";
 
 const SauphemismusLayout = () => {
     // create the shared layout for all Sauphemismus related themes/pages
@@ -16,17 +17,30 @@ const SauphemismusLayout = () => {
         handleClick,
     } = useOutletContext();
 
-    console.log("SauphemismusPage rendered");
-    console.log("Current theme:", currentTheme);
     return (
-        <>
-            <h1 className="flex text-3xl font-bold">
+        <div
+            className="flex min-h-screen w-full flex-col items-center justify-around bg-cover bg-fixed bg-center bg-no-repeat p-4 text-white text-shadow-black/30 text-shadow-md"
+            style={{
+                backgroundImage: `url(${generatedTextMain.image || currentTheme.data.fallbackImage})`,
+            }}
+        >
+            <h1 className="text-4xl font-bold">
                 {currentTheme.data.pageTitle}
             </h1>
-            <button className="bg-blue-100 p-3 text-2xl" onClick={handleClick}>
-                {currentTheme.data.generateButtonText}
-            </button>
-            <div className="flex min-h-150 w-fit flex-col items-center gap-8">
+            <div className="mt-10 flex max-w-[310px] flex-col items-center justify-center rounded-lg bg-black/10 p-4 text-center text-2xl backdrop-blur-xl">
+                {currentTheme.data.introText && currentTheme.data.introText}
+
+                {isMainLoading ? (
+                    <div className="mt-5 h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white"></div>
+                ) : (
+                    <div className="mt-1 text-2xl">
+                        {generatedTextMain.text &&
+                            generatedTextMain.text +
+                                currentTheme.data.generatedTextSuffix}
+                    </div>
+                )}
+            </div>
+            {/* <div className="flex min-h-150 w-fit flex-col items-center gap-8">
                 <h2 className="text-2xl italic">
                     Main: loading == {String(isMainLoading)}
                 </h2>
@@ -89,8 +103,15 @@ const SauphemismusLayout = () => {
                         </div>
                     </div>
                 )}
-            </div>
-        </>
+            </div> */}
+
+            <button
+                className="rounded-full border-2 border-black/50 bg-black/10 p-5 text-2xl shadow-md shadow-black/30 backdrop-blur-xl hover:bg-white/10"
+                onClick={handleClick}
+            >
+                {currentTheme.data.generateButtonText}
+            </button>
+        </div>
     );
 };
 

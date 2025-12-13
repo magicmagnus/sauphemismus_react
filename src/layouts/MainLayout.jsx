@@ -45,8 +45,10 @@ function MainLayout() {
         image: null,
     });
 
-    const [isMainLoading, setIsMainLoading] = useState(false);
+    const [isMainLoading, setIsMainLoading] = useState(true);
     const [isBufferLoading, setIsBufferLoading] = useState(false);
+
+    const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
     // on first load, start loading buffer
     // useEffect(() => {
@@ -60,6 +62,7 @@ function MainLayout() {
 
     // Update theme when URL changes
     useEffect(() => {
+        setIsNavbarOpen(false);
         setGeneratedTextMain({
             text: null,
             pos: null,
@@ -99,10 +102,10 @@ function MainLayout() {
 
     const loadBuffer = () => {
         setIsBufferLoading(true);
-        if (["sauphemismus", "pilzfinder"].includes(currentTheme.name)) {
-            loadBufferWithoutPOS(); // no special POS processing for these themes needed
+        if (currentTheme.data.needsPOSProcessing) {
+            loadBufferWithPOS(); // no special POS processing for these themes needed
         } else {
-            loadBufferWithPOS();
+            loadBufferWithoutPOS();
         }
     };
 
@@ -184,7 +187,7 @@ function MainLayout() {
                 }
 
                 fetchPixabayImages(
-                    "beer",
+                    currentTheme.data.keywords,
                     currentTheme.data.fallbackKeyword,
                 ).then((image_url) => {
                     console.log("final buffer:", {
@@ -212,8 +215,12 @@ function MainLayout() {
     };
 
     return (
-        <div className="flex min-h-screen flex-col items-center justify-start gap-16 bg-linear-to-b from-blue-200 to-blue-400 p-20">
-            <Navbar themeData={themeData} />
+        <div className="min-h-screen w-full bg-slate-950 text-white">
+            <Navbar
+                themeData={themeData}
+                isOpen={isNavbarOpen}
+                setIsOpen={setIsNavbarOpen}
+            />
             <Outlet
                 context={{
                     currentTheme,
