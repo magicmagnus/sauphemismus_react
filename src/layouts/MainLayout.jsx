@@ -34,6 +34,10 @@ function MainLayout() {
 
     const themeData = themedata;
 
+    const [currentFont, setCurrentFont] = useState(
+        currentTheme.name === "bibelzitate" ? "italianno" : "josefin-slab",
+    );
+
     const [generatedTextMain, setGeneratedTextMain] = useState({
         text: null,
         pos: null,
@@ -58,6 +62,7 @@ function MainLayout() {
     useEffect(() => {
         console.log("Current theme changed to:", currentTheme.name);
         loadBuffer();
+        setRandomFont();
     }, [currentTheme]);
 
     // Update theme when URL changes
@@ -205,6 +210,15 @@ function MainLayout() {
         );
     };
 
+    function setRandomFont() {
+        if (currentTheme.data.fonts != undefined) {
+            const random = Math.floor(
+                Math.random() * currentTheme.data.fonts.length,
+            );
+            setCurrentFont(currentTheme.data.fonts[random]);
+        }
+    }
+
     const handleClick = () => {
         if (isBufferLoading) {
             // if buffer not ready, set main to loading and wait
@@ -225,11 +239,13 @@ function MainLayout() {
             <Outlet
                 context={{
                     currentTheme,
+                    currentFont,
                     generatedTextMain,
                     generatedTextBuffer,
                     isMainLoading,
                     isBufferLoading,
                     handleClick,
+                    setRandomFont,
                 }}
             />
         </div>

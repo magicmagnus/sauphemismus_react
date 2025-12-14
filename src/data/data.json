@@ -8,7 +8,7 @@
         },
         "inputPromptArray": [
             "sich amtlich einen umzuhängen",
-            "sich einen hinter die Brust gleiten zu lassen",
+            "sich einen hpoppins die Brust gleiten zu lassen",
             "sich als einen Knacker zu bezeichnen",
             "sich die Brause schütteln zu lassen",
             "sich beinahe einen zu pummeln",
@@ -29,14 +29,14 @@
             "sich einen in die Schädelhöhle zu rühren",
             "sich ordentlich einen reinzulöten",
             "sich wie ein Achtarmiger einen reinzuorgeln",
-            "sich einen hinter die Rüstung zu römern",
+            "sich einen hpoppins die Rüstung zu römern",
             "sich ein Export zu importieren",
             "sich einen aus der Fassung zu befreien",
             "sich den Helm zu lackieren",
             "sich die Kontakte feucht zu legen",
             "sich einen Henkel vom Humpen zu brechen",
             "sich den Schädel zu fluten",
-            "sich einen hinter die Kiemen zu peitschen"
+            "sich einen hpoppins die Kiemen zu peitschen"
         ],
         "splitChar": "*",
         "generatedTextSuffix": "?",
@@ -58,7 +58,8 @@
         "needsPOSProcessing": false,
         "introText": "Hey, Bock heute Abend ",
         "generateButtonText": "Noch einer!",
-        "pageTitle": "Sauphemismus"
+        "pageTitle": "Sauphemismus",
+        "fonts": ["poppins"]
     },
     "sprichworte": {
         "requestData": {
@@ -103,7 +104,14 @@
         "fallbackImage": "https://pixabay.com/get/g7932b3e0f29c00aaa605ba99d0b304e95f299a10734aa420e83b99332ed6417039ffb02dde9b8e3f3f33e9eb2a9335bfb43d70086966401929d24c7a5702cf26_1280.jpg",
         "needsPOSProcessing": true,
         "generateButtonText": "Erleuchte mich!",
-        "pageTitle": "Sprichwörter"
+        "pageTitle": "Sprichwörter",
+        "fonts": [
+            "josefin-slab",
+            "bodoni-moda",
+            "bitter",
+            "amatic-sc",
+            "yeseva-one"
+        ]
     },
     "faktemismus": {
         "requestData": {
@@ -158,7 +166,8 @@
         "fallbackKeyword": "idea",
         "needsPOSProcessing": true,
         "generateButtonText": "Noch ein Fakt!",
-        "pageTitle": "Faktemismus"
+        "pageTitle": "Faktemismus",
+        "fonts": ["poppins"]
     },
     "ausreden": {
         "requestData": {
@@ -207,7 +216,8 @@
         "needsPOSProcessing": true,
         "introText": "Tut mir leid,",
         "generateButtonText": "Noch 'ne Ausrede!",
-        "pageTitle": "Ausreden"
+        "pageTitle": "Ausreden",
+        "fonts": ["poppins"]
     },
     "bibelzitate": {
         "requestData": {
@@ -232,9 +242,18 @@
         "splitChar": "*",
         "generatedTextSuffix": "",
         "fallbackKeyword": "faith",
+        "fallbackImage": "https://pixabay.com/get/ga6f0d490401264cce3b97132bbddf287fcb3eeced2a8b0525a88a8ffac5b5d8a35b25e008afb92f1519865f8a6ca420c05f908e41eb0f15f25b90a43cab7c17d_1280.jpg",
         "needsPOSProcessing": true,
         "generateButtonText": "Erleuchte mich!",
-        "pageTitle": "Bibelzitate"
+        "pageTitle": "Bibelzitate",
+        "fonts": [
+            "tangerine",
+            "parisienne",
+            "italianno",
+            "caveat",
+            "indie-flower",
+            "reeenie-beanie"
+        ]
     },
     "chessgpt": {
         "requestData": {
@@ -295,7 +314,8 @@
         "needsPOSProcessing": false,
         "introText": "Ah, you've played the",
         "generateButtonText": "Another move!",
-        "pageTitle": "ChessGPT"
+        "pageTitle": "ChessGPT",
+        "fonts": ["noto-serif"]
     },
     "pilzfinder": {
         "requestData": {
@@ -342,7 +362,8 @@
         "needsPOSProcessing": false,
         "introText": "Oh, ist das ein",
         "generateButtonText": "Noch einer!",
-        "pageTitle": "Pilzfinder"
+        "pageTitle": "Pilzfinder",
+        "fonts": ["poppins"]
     },
     "sauphemismus_en": {
         "requestData": {
@@ -422,7 +443,8 @@
         "needsPOSProcessing": false,
         "introText": "Oi, you wanna",
         "generateButtonText": "Another one!",
-        "pageTitle": "Sauphemismus"
+        "pageTitle": "Sauphemismus",
+        "fonts": ["poppins"]
     },
     "justgptthings": {
         "requestData": {
@@ -469,6 +491,7 @@
         "fallbackKeyword": "happiness",
         "needsPOSProcessing": true,
         "generateButtonText": "more things!",
-        "pageTitle": "justGPTthings"
+        "pageTitle": "justGPTthings",
+        "fonts": ["poppins"]
     }
 }

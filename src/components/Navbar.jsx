@@ -11,7 +11,7 @@ const Navbar = ({ themeData, isOpen, setIsOpen }) => {
 
     return (
         <div
-            className={`absolute right-0 bottom-0 z-10 mb-2 flex flex-col items-center gap-2 rounded-lg shadow-black/30 backdrop-blur-xl transition-all duration-200 ease-in-out ${isOpen ? "left-1/2 min-w-85 -translate-x-1/2 bg-zinc-900 p-2" : "mr-2 bg-black/20 px-2 py-1 pb-1.5 hover:bg-black/30"}`}
+            className={`absolute right-0 bottom-0 z-10 mb-2 flex flex-col items-center gap-2 rounded-lg shadow-sm shadow-black/30 backdrop-blur-xl transition-all duration-200 ease-in-out ${isOpen ? "left-1/2 min-w-85 -translate-x-1/2 bg-zinc-900 p-2" : "mr-2 bg-black/20 px-2 py-1 pb-1.5 hover:scale-105 hover:bg-black/30"}`}
         >
             {isOpen ? (
                 <>
@@ -35,10 +35,10 @@ const Navbar = ({ themeData, isOpen, setIsOpen }) => {
                 </>
             ) : (
                 <button
-                    className="px-2 py-1 text-sm text-white italic"
+                    className="px-1 text-sm text-white italic"
                     onClick={() => setIsOpen(true)}
                 >
-                    More
+                    Other Themes
                 </button>
             )}
         </div>
