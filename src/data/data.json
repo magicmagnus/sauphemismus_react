@@ -164,10 +164,11 @@
         "splitChar": "*",
         "generatedTextSuffix": ".",
         "fallbackKeyword": "idea",
+        "fallbackImage": "https://pixabay.com/get/g79abba0fa0a45c4ffd1d01f2379b4df38c20c86dd4433280bba23156bdef435fbb325f134a8466862983bfeb48d11bf4cbed8d5a63df1d835c594cdd782bf784_1280.jpg",
         "needsPOSProcessing": true,
         "generateButtonText": "Noch ein Fakt!",
         "pageTitle": "Faktemismus",
-        "fonts": ["poppins"]
+        "fonts": ["noto-sans"]
     },
     "ausreden": {
         "requestData": {

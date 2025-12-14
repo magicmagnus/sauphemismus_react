@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { Outlet, useOutletContext } from "react-router-dom";
-import { SyncLoader } from "react-spinners";
+import { useOutletContext } from "react-router-dom";
 import GenerateButton from "../components/GenerateButton.jsx";
 import BackgroundImage from "../components/BackgroundImage.jsx";
 
@@ -32,7 +30,7 @@ const SprichworteLayout = () => {
               ? "text-3xl md:text-4xl"
               : "text-4xl";
 
-    const fonts = currentTheme.data.fonts ? currentTheme.data.fonts : [];
+    //const fonts = currentTheme.data.fonts ? currentTheme.data.fonts : [];
 
     console.log(
         "Selected font:",

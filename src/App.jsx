@@ -41,10 +41,11 @@ const router = createBrowserRouter(
             <Route element={<SprichworteLayout />}>
                 <Route path="sprichworte" element={<SprichwortePage />} />
                 <Route path="bibelzitate" element={<BibelzitatePage />} />
+                <Route path="justgptthings" element={<JustGPTThingsPage />} />
             </Route>
 
             {/* Routes that don't use any specific layout */}
-            <Route path="justgptthings" element={<JustGPTThingsPage />} />
+
             <Route path="faktemismus" element={<FaktemismusPage />} />
         </Route>,
     ),

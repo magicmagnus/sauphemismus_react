@@ -24,7 +24,7 @@ const BackgroundImageSingle = ({ currentTheme, generatedText, filter }) => {
         }
     }, [generatedText.image, currentTheme.data.fallbackImage, currentImage]);
     return (
-        <div className="absolute inset-0 -z-10 overflow-hidden bg-amber-500">
+        <div className="absolute inset-0 -z-10 overflow-hidden bg-zinc-900">
             <img
                 src={currentImage}
                 alt={currentTheme.data.pageTitle}
