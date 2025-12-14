@@ -22,7 +22,7 @@ const SauphemismusLayout = () => {
     return (
         <div
             className={
-                "flex min-h-screen w-full flex-col items-center justify-between bg-cover p-4 text-white text-shadow-black/30 text-shadow-md" +
+                "flex min-h-dvh w-full flex-col items-center justify-between bg-cover p-4 text-white text-shadow-black/30 text-shadow-md" +
                 ` ${currentFont}`
             }
         >

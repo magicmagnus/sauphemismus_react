@@ -46,7 +46,7 @@ const SprichworteLayout = () => {
     return (
         <div
             className={
-                "flex min-h-screen w-full flex-col items-center justify-between bg-cover p-4 text-white " +
+                "flex min-h-dvh w-full flex-col items-center justify-between bg-cover p-4 text-white " +
                 `${currentFont}`
             }
         >

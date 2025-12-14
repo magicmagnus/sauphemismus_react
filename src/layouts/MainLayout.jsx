@@ -230,7 +230,7 @@ function MainLayout() {
     };
 
     return (
-        <div className="min-h-screen w-full text-white">
+        <div className="min-h-dvh w-full text-white">
             <Navbar
                 themeData={themeData}
                 isOpen={isNavbarOpen}

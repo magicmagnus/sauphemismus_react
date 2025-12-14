@@ -103,6 +103,7 @@
 .noto-serif {
     font-family: "Noto Serif", serif;
     font-optical-sizing: auto;
+    font-weight: 500;
     font-variation-settings:
         "wdth" 100;
 }
