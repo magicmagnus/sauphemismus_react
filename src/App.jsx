@@ -28,7 +28,10 @@ const router = createBrowserRouter(
             {/* Routes that use SauphemismusLayout */}
             <Route element={<SauphemismusLayout />}>
                 <Route path="sauphemismus" element={<SauphemismusPage />} />
-                <Route path="sauphemismusen" element={<SauphemismusEnPage />} />
+                <Route
+                    path="sauphemismus_en"
+                    element={<SauphemismusEnPage />}
+                />
                 <Route path="pilzfinder" element={<PilzfinderPage />} />
                 <Route path="ausreden" element={<AusredenPage />} />
                 <Route path="chessgpt" element={<ChessGPTPage />} />
