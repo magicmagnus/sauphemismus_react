@@ -4,17 +4,18 @@ import { NavLink, Link } from "react-router-dom";
 const Navbar = ({ themeData, isOpen, setIsOpen }) => {
     const linkClass = ({ isActive }) => {
         return (
-            "rounded border p-1 hover:bg-slate-500 " +
-            (isActive ? " bg-slate-600 font-bold" : " ")
+            "rounded p-1 px-2 hover:bg-zinc-500 " +
+            (isActive ? " bg-zinc-600 font-bold" : " bg-zinc-700")
         );
     };
 
     return (
-        <div className="absolute top-0 right-0 flex w-fit flex-col items-end bg-amber-600 p-2 opacity-65">
+        <div
+            className={`absolute right-0 bottom-0 z-10 mb-2 flex flex-col items-center gap-2 rounded-lg shadow-black/30 backdrop-blur-xl transition-all duration-500 ease-in-out ${isOpen ? "left-1/2 min-w-85 -translate-x-1/2 bg-zinc-900 p-2" : "mr-2 bg-black/40 px-2 py-1 pb-1.5 hover:bg-black/30"}`}
+        >
             {isOpen ? (
                 <>
-                    <button onClick={() => setIsOpen(false)}>Close</button>
-                    <nav className="grid w-full grid-cols-3 gap-1 bg-slate-800 p-2 text-xs text-white md:text-base">
+                    <nav className="grid w-full grid-cols-3 gap-1.5 p-2 text-xs text-white md:text-base">
                         {Object.keys(themeData).map((themeKey) => (
                             <NavLink
                                 key={themeKey}
@@ -25,9 +26,15 @@ const Navbar = ({ themeData, isOpen, setIsOpen }) => {
                             </NavLink>
                         ))}
                     </nav>
+                    <button
+                        className="-mt-1 pb-2"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        Close
+                    </button>
                 </>
             ) : (
-                <button onClick={() => setIsOpen(true)}>More Things</button>
+                <button onClick={() => setIsOpen(true)}>More</button>
             )}
         </div>
     );

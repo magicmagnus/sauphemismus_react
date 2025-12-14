@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bitter:ital,wght@0,100..900;1,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Yeseva+One&display=swap');
 @import "tailwindcss";
+@plugin "flyonui";
+
 
 @keyframes typewriter-dots {
 
@@ -24,4 +27,39 @@
     100% {
         opacity: 0;
     }
+}
+
+
+.josefin-slab {
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.bodoni-moda {
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.bitter {
+    font-family: "Bitter", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.amatic-sc {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 900;
+    font-style: normal
+}
+
+.yeseva-one {
+    font-family: "Yeseva One", serif;
+    font-weight: 700;
+    font-style: normal;
 }

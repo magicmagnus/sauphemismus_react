@@ -54,11 +54,12 @@ export function parsePixabayImages(data) {
 }
 
 export async function fetchPixabayImages(keywords, fallbackKeyword = "beer") {
-    // if keywords an array, shuffle, join to string
+    // if keywords an array, join random one with fallbackKeyword
     if (Array.isArray(keywords)) {
         keywords.sort(() => Math.random() - 0.5);
-        keywords = keywords.join("+");
+        keywords = keywords[0] + "+" + fallbackKeyword;
     }
+    console.log("Fetching Pixabay images for keywords:", keywords);
     const response = await fetch(
         `https://pixabay.com/api/?key=44651696-fb16f33f4e495b9a42868696c&q=${keywords}&orientation=all&image_type=photo&per_page=50`,
     );

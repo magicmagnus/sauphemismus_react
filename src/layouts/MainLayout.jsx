@@ -63,6 +63,7 @@ function MainLayout() {
     // Update theme when URL changes
     useEffect(() => {
         setIsNavbarOpen(false);
+        setIsMainLoading(true);
         setGeneratedTextMain({
             text: null,
             pos: null,
@@ -215,7 +216,7 @@ function MainLayout() {
     };
 
     return (
-        <div className="min-h-screen w-full bg-slate-950 text-white">
+        <div className="min-h-screen w-full text-white">
             <Navbar
                 themeData={themeData}
                 isOpen={isNavbarOpen}
