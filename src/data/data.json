@@ -213,7 +213,7 @@
         "requestData": {
             "model": "DiscoResearch/Llama3-German-8B",
             "provider": "featherless-ai",
-            "max_tokens": 90,
+            "max_tokens": 80,
             "temperature": 0.9
         },
         "inputPromptArray": [

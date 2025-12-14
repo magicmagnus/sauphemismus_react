@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import themedata from "../data/data.json";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { SyncLoader } from "react-spinners";
+import GenerateButton from "../components/GenerateButton.jsx";
 
 const SauphemismusLayout = () => {
     // create the shared layout for all Sauphemismus related themes/pages
@@ -70,7 +71,7 @@ const SauphemismusLayout = () => {
             <h1 className="mt-15 text-4xl font-bold">
                 {currentTheme.data.pageTitle}
             </h1>
-            <div className="flex max-w-78 flex-col items-center justify-center rounded-lg bg-black/40 p-4 text-center text-2xl backdrop-blur-xl transition-all duration-500 ease-in-out">
+            <div className="flex max-w-78 flex-col items-center justify-center rounded-md bg-black/20 p-4 text-center text-2xl backdrop-blur-xl transition-all duration-500 ease-in-out">
                 {currentTheme.data.introText && currentTheme.data.introText}
 
                 {isMainLoading ? (
@@ -84,12 +85,9 @@ const SauphemismusLayout = () => {
                 )}
             </div>
 
-            <button
-                className="mb-15 rounded-full bg-black/40 p-5 text-2xl shadow-md shadow-black/30 backdrop-blur-xl hover:bg-black/30"
-                onClick={handleClick}
-            >
+            <GenerateButton onClick={handleClick}>
                 {currentTheme.data.generateButtonText}
-            </button>
+            </GenerateButton>
         </div>
     );
 };

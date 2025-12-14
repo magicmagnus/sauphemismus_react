@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import GenerateButton from "../components/GenerateButton.jsx";
 
 const SprichwortePage = () => {
     const {
@@ -70,8 +71,8 @@ const SprichwortePage = () => {
                     className="h-full w-full object-cover"
                     style={{
                         filter: imageLoaded
-                            ? "blur(0px) contrast(0.9) sepia(0.8) brightness(0.85)"
-                            : "blur(5px) contrast(0.9) sepia(0.8) brightness(0.7)",
+                            ? "blur(0px) contrast(0.9) sepia(0.5) brightness(0.85)"
+                            : "blur(5px) contrast(0.9) sepia(0.5) brightness(0.7)",
                         transform: imageLoaded ? "scale(1.1)" : "scale(1.05)",
                         transition: "all 200ms ease-in-out",
                     }}
@@ -95,12 +96,9 @@ const SprichwortePage = () => {
                 )}
             </div>
 
-            <button
-                className="mb-15 rounded-full bg-black/40 p-5 text-2xl shadow-md shadow-black/30 backdrop-blur-xl hover:bg-black/30"
-                onClick={handleClickExtended}
-            >
+            <GenerateButton onClick={handleClickExtended}>
                 {currentTheme.data.generateButtonText}
-            </button>
+            </GenerateButton>
         </div>
     );
 };
