@@ -25,11 +25,11 @@ function MainLayout() {
     const navigate = useNavigate();
 
     // Extract theme from URL
-    const currentThemeSlug = location.pathname.split("/")[1] || "sauphemismus";
+    const currentThemeSlug = location.pathname.split("/")[1] || "faketastisch";
 
     const [currentTheme, setCurrentTheme] = useState({
         name: currentThemeSlug,
-        data: themedata[currentThemeSlug] || themedata.sauphemismus,
+        data: themedata[currentThemeSlug] || themedata.faketastisch,
     });
 
     const themeData = themedata;
@@ -79,7 +79,7 @@ function MainLayout() {
             pos: null,
             image: null,
         });
-        const newThemeSlug = location.pathname.split("/")[1] || "sauphemismus";
+        const newThemeSlug = location.pathname.split("/")[1] || "faketastisch";
         if (themedata[newThemeSlug] && newThemeSlug !== currentTheme.name) {
             setCurrentTheme({
                 name: newThemeSlug,
@@ -234,6 +234,7 @@ function MainLayout() {
             <Navbar
                 themeData={themeData}
                 isOpen={isNavbarOpen}
+                currentFont={currentFont}
                 setIsOpen={setIsNavbarOpen}
             />
             <Outlet

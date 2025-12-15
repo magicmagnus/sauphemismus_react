@@ -3,7 +3,7 @@ import GenerateButton from "../components/GenerateButton.jsx";
 import BackgroundImage from "../components/BackgroundImage.jsx";
 import { FaBrain } from "react-icons/fa6";
 
-const FaktemismusPage = () => {
+const FaketastischPage = () => {
     const {
         currentTheme,
         currentFont,
@@ -86,10 +86,12 @@ const FaktemismusPage = () => {
                 </div>
                 <div className="absolute bottom-0 left-1/2 mb-4 flex h-fit w-fit -translate-x-1/2 flex-col items-center justify-center">
                     <p className="w-full bg-(--fred) pb-0.5 text-center text-xs font-bold">
-                        FAKTEMISMUS
+                        {currentTheme.data.pageTitle.toUpperCase()}
                     </p>
                     <p className="text-[0.45rem] font-light opacity-80 text-shadow-black/80 text-shadow-md">
-                        sauphemismus.netlify.app/faktemismus
+                        {currentTheme.data.pageTitle.toLowerCase() +
+                            ".netlify.app/" +
+                            currentTheme.data.pageTitle.toLowerCase()}
                     </p>
                 </div>
                 {isMainLoading ? (
@@ -113,4 +115,4 @@ const FaktemismusPage = () => {
     );
 };
 
-export default FaktemismusPage;
+export default FaketastischPage;

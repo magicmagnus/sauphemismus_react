@@ -61,7 +61,7 @@ export async function fetchPixabayImages(keywords, fallbackKeyword = "beer") {
     }
     console.log("Fetching Pixabay images for keywords:", keywords);
     const response = await fetch(
-        `https://pixabay.com/api/?key=44651696-fb16f33f4e495b9a42868696c&q=${keywords}&orientation=all&image_type=photo&per_page=50`,
+        `https://pixabay.com/api/?key=44651696-fb16f33f4e495b9a42868696c&safesearch=true&q=${keywords}&orientation=all&image_type=photo&per_page=50`,
     );
     const image_url = parsePixabayImages(await response.json());
     if (image_url == null) {

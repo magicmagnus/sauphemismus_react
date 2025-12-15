@@ -13,7 +13,7 @@ import SprichworteLayout from "./layouts/SprichworteLayout.jsx";
 import SauphemismusPage from "./pages/SauphemismusPage.jsx";
 import PilzfinderPage from "./pages/PilzfinderPage.jsx";
 import JustGPTThingsPage from "./pages/JustGPTThingsPage.jsx";
-import FaktemismusPage from "./pages/FaktemismusPage.jsx";
+import FaketastischPage from "./pages/FaketastischPage.jsx";
 import SauphemismusEnPage from "./pages/SauphemismusEnPage.jsx";
 import AusredenPage from "./pages/AusredenPage.jsx";
 import ChessGPTPage from "./pages/ChessGPTPage.jsx";
@@ -23,7 +23,7 @@ import BibelzitatePage from "./pages/BibelzitatePage.jsx";
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<MainLayout />}>
-            <Route index element={<Navigate to="/sauphemismus" replace />} />
+            <Route index element={<Navigate to="/faketastisch" replace />} />
 
             {/* Routes that use SauphemismusLayout */}
             <Route element={<SauphemismusLayout />}>
@@ -46,7 +46,7 @@ const router = createBrowserRouter(
 
             {/* Routes that don't use any specific layout */}
 
-            <Route path="faktemismus" element={<FaktemismusPage />} />
+            <Route path="faketastisch" element={<FaketastischPage />} />
         </Route>,
     ),
 );
