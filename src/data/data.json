@@ -66,7 +66,7 @@
             "model": "DiscoResearch/Llama3-German-8B",
             "provider": "featherless-ai",
             "max_tokens": 50,
-            "temperature": 1.1
+            "temperature": 1.0
         },
         "inputPromptArray": [
             "Da wird der Hund in der Pfanne verrückt",
@@ -96,7 +96,23 @@
             "Lügen haben kurze Beine",
             "Gelegenheit macht Diebe",
             "Der Apfel fällt nicht weit vom Stamm",
-            "Wie man in den Wald hineinruft, so schallt es heraus"
+            "Wie man in den Wald hineinruft, so schallt es heraus",
+            "Auf dunklen Wasser schlafen die Fische gut",
+            "Erbse und Schaf widersprechen sich nicht",
+            "Jeder topft seinen Garten in der Krise selbst",
+            "Eine kalte Ente frisst man nicht aber gekocht läßt sie sich essen",
+            "Wenn der Gärtner brummt, gibt's Ärger im Parlament",
+            "Traue niemals einem Helmfriwilde ohne Netzhemmfalte",
+            "Wer auf Bäume steigt hört beide Glocken schlagen",
+            "Seid ernst, Jungs, seid müder, alte Herren",
+            "Das Leben ist kurz, der Schlaf länger, das Wasser flußig, die Zeit ein Rätsel",
+            "Das Eisen des Schlafes mag nur leicht geknetet werden",
+            "Wer nicht stänkert hat schon verloren",
+            "Regenwetter steht bei Dir wie auf Abruf!Das Messer zeigt aufs Stullenbrot...",
+            "Glück ist ein warmer Handschuh in kalten Zeiten",
+            "Die Fische muß man schröpfen",
+            "Die dritte Person hört immer den Vogel singen",
+            "Spinnen haben kleine Münder"
         ],
         "splitChar": "*",
         "generatedTextSuffix": "",
@@ -445,7 +461,7 @@
         "needsPOSProcessing": false,
         "introText": "Oi, you wanna",
         "generateButtonText": "Another one!",
-        "pageTitle": "Sauphemismus",
+        "pageTitle": "Sauphemism",
         "fonts": ["poppins"]
     },
     "justgptthings": {
