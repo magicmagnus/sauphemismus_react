@@ -84,7 +84,6 @@ export function createInputPrompt(inputPromptArray) {
     for (var i = 0; i < inputPromptArray.length; i++) {
         inputPrompt += inputPromptArray[i] + "*";
     }
-    console.log("Created input prompt:", inputPrompt);
 
     return inputPrompt;
 }
