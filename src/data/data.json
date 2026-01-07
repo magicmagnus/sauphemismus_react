@@ -182,7 +182,7 @@
         "splitChar": "*",
         "generatedTextSuffix": ".",
         "fallbackKeyword": "idea",
-        "fallbackImage": "https://pixabay.com/get/g79abba0fa0a45c4ffd1d01f2379b4df38c20c86dd4433280bba23156bdef435fbb325f134a8466862983bfeb48d11bf4cbed8d5a63df1d835c594cdd782bf784_1280.jpg",
+        "fallbackImage": "https://pixabay.com/get/gd0b48b1628ee10a43a8adcd3910f933f563e648d8bef800e0c67588a06c522d1997094ca0514b079fcefe14f6079f03207da29fd505bd26b6336e079355ca82d_1280.jpg",
         "needsPOSProcessing": true,
         "generateButtonText": "Noch ein Fakt!",
         "pageTitle": "Faketastisch",
