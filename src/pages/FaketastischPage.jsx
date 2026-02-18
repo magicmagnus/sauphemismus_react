@@ -74,7 +74,7 @@ const FaketastischPage = () => {
                             generatedTextMain.image ||
                             currentTheme.data.fallbackImage
                         }
-                        alt={currentTheme.data.pageTitle}
+                        // alt={currentTheme.data.pageTitle}
                         className="h-full w-full object-cover"
                         style={{
                             filter: "contrast(0.9) brightness(0.5)",

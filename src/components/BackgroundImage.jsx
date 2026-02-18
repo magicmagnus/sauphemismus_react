@@ -27,7 +27,7 @@ const BackgroundImageSingle = ({ currentTheme, generatedText, filter }) => {
         <div className="absolute inset-0 -z-10 overflow-hidden bg-zinc-900">
             <img
                 src={currentImage}
-                alt={currentTheme.data.pageTitle}
+                // alt={currentTheme.data.pageTitle}
                 className="h-full w-full object-cover"
                 style={{
                     filter: imageLoaded
