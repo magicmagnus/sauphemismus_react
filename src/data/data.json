@@ -240,7 +240,7 @@
         "fallbackKeyword": "traffic",
         "fallbackImage": "simonevomfeld-sunrise-g59eaf83b5_1280.jpg",
         "needsPOSProcessing": true,
-        "introText": "Tut mir leid,",
+        "introText": "Tut mir leid, aber ",
         "generateButtonText": "Noch 'ne Ausrede!",
         "pageTitle": "Ausreden",
         "fonts": ["poppins"]
@@ -338,7 +338,7 @@
             "pawn"
         ],
         "needsPOSProcessing": false,
-        "introText": "Ah, you've played the",
+        "introText": "Ah, you've played the ",
         "generateButtonText": "Another move!",
         "pageTitle": "ChessGPT",
         "fonts": ["noto-serif"]
@@ -386,7 +386,7 @@
             "decomposition"
         ],
         "needsPOSProcessing": false,
-        "introText": "Oh, ist das ein",
+        "introText": "Oh, ist das ein ",
         "generateButtonText": "Noch einer!",
         "pageTitle": "Pilzfinder",
         "fonts": ["poppins"]
@@ -455,7 +455,7 @@
             "wine"
         ],
         "needsPOSProcessing": false,
-        "introText": "Oi, you wanna",
+        "introText": "Oi, you wanna ",
         "generateButtonText": "Another one!",
         "pageTitle": "Sauphemism",
         "fonts": ["poppins"]
