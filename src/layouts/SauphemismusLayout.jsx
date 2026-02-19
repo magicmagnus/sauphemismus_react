@@ -22,38 +22,39 @@ const SauphemismusLayout = () => {
     return (
         <div
             className={
-                "flex min-h-dvh w-full flex-col items-center justify-between bg-cover p-4 text-white text-shadow-black/30 text-shadow-md" +
+                "flex min-h-dvh w-full flex-col items-center justify-between bg-cover p-4 text-white " +
                 ` ${currentFont}`
             }
         >
             {/* buffer background image */}
-
             <BackgroundImage
                 currentTheme={currentTheme}
                 generatedTextBuffer={generatedTextBuffer}
                 generatedTextMain={generatedTextMain}
-                filter={"brightness(0.95)"}
+                filter={"brightness(0.9)"}
             />
 
             {/* title */}
-            <h1 className="mt-15 text-4xl font-bold">
+            <h1 className="mt-15 text-4xl font-bold text-shadow-black/80 text-shadow-md md:text-6xl 2xl:text-7xl">
                 {currentTheme.data.pageTitle}
             </h1>
 
             {/* main content */}
-            <div className="flex max-w-78 flex-col items-center justify-center rounded-md bg-black/20 p-4 text-center text-2xl backdrop-blur-xl transition-all duration-500 ease-in-out">
+            <p
+                className={`max-w-78 flex-col items-center justify-center rounded-md bg-black/10 p-4 text-center text-3xl wrap-break-word backdrop-blur-xl transition-all duration-500 ease-in-out text-shadow-black/80 text-shadow-md md:max-w-150 md:rounded-xl md:p-8 md:text-5xl lg:max-w-170 2xl:max-w-170 2xl:rounded-2xl 2xl:p-12 2xl:text-6xl ${isMainLoading ? "flex" : "inline-block"}`}
+            >
                 {currentTheme.data.introText && currentTheme.data.introText}
 
                 {isMainLoading ? (
-                    <span className="loading loading-spinner mt-7 mb-3"></span>
+                    <div className="loading loading-spinner mt-7 mb-3"></div>
                 ) : (
-                    <div className="mt-1 text-2xl">
+                    <span className="">
                         {generatedTextMain.text &&
                             generatedTextMain.text +
                                 currentTheme.data.generatedTextSuffix}
-                    </div>
+                    </span>
                 )}
-            </div>
+            </p>
 
             <GenerateButton onClick={handleClick}>
                 {currentTheme.data.generateButtonText}

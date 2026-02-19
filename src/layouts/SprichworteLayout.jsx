@@ -25,10 +25,10 @@ const SprichworteLayout = () => {
 
     const fontSizeClass =
         textLength > 200
-            ? "text-2xl md:text-3xl"
+            ? "text-2xl md:text-3xl 2xl:text-4xl"
             : textLength > 100
-              ? "text-3xl md:text-4xl"
-              : "text-4xl";
+              ? "text-3xl md:text-4xl 2xl:text-5xl"
+              : "text-4xl md:text-5xl 2xl:text-6xl";
 
     //const fonts = currentTheme.data.fonts ? currentTheme.data.fonts : [];
 
@@ -48,29 +48,23 @@ const SprichworteLayout = () => {
                 `${currentFont}`
             }
         >
+            {/* buffer background image */}
             <BackgroundImage
                 currentTheme={currentTheme}
                 generatedTextBuffer={generatedTextBuffer}
                 generatedTextMain={generatedTextMain}
-                filter={"contrast(0.9) sepia(0.5) brightness(0.9)"}
+                filter={"contrast(0.8) sepia(0.5) brightness(0.7)"}
             />
 
-            {/* content */}
-            <h1 className="mt-15 text-5xl font-bold text-shadow-black/80 text-shadow-md">
+            {/* title */}
+            <h1 className="mt-15 text-4xl font-bold text-shadow-black/80 text-shadow-md md:text-6xl 2xl:text-7xl">
                 {currentTheme.data.pageTitle}
             </h1>
-            {/* {fonts.map((font) => (
-                <p
-                    key={font}
-                    className={`mt-1 text-4xl italic text-shadow-black/80 text-shadow-md ${font}`}
-                >
-                    Font: {font}
-                </p>
-            ))} */}
 
+            {/* main content */}
             <div
                 className={
-                    `flex max-w-78 flex-col items-center justify-center p-4 text-center text-shadow-black/80 text-shadow-md ` +
+                    `flex max-w-78 flex-col items-center justify-center p-4 text-center text-shadow-black/80 text-shadow-md md:max-w-125 2xl:max-w-150 ` +
                     `${fontSizeClass}`
                 }
             >
@@ -84,7 +78,6 @@ const SprichworteLayout = () => {
                     </div>
                 )}
             </div>
-
             <GenerateButton onClick={handleClickExtended}>
                 {currentTheme.data.generateButtonText}
             </GenerateButton>

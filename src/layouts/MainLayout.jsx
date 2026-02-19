@@ -10,6 +10,8 @@ import {
     createInputPrompt,
     fetchTranslation,
 } from "../utils/utils";
+
+import { runBufferPipeline } from "../utils/bufferPipeline";
 import themedata from "../data/data.json";
 import Navbar from "../components/Navbar";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
@@ -106,108 +108,22 @@ function MainLayout() {
         generatedTextBuffer,
     ]);
 
-    const loadBuffer = () => {
+    const loadBuffer = async () => {
         setIsBufferLoading(true);
-        if (currentTheme.data.needsPOSProcessing) {
-            loadBufferWithPOS(); // no special POS processing for these themes needed
-        } else {
-            loadBufferWithoutPOS();
+
+        try {
+            const result = await runBufferPipeline(
+                currentTheme.data,
+                loadBuffer, // Pass loadBuffer as retry callback
+            );
+
+            console.log("final buffer:", result);
+            setGeneratedTextBuffer(result);
+        } catch (error) {
+            console.error("Buffer loading failed:", error);
+        } finally {
+            setIsBufferLoading(false);
         }
-    };
-
-    const loadBufferWithPOS = () => {
-        setIsBufferLoading(true);
-        // step 1: first fetch the generated text (the main output)
-        currentTheme.data.requestData.inputs = createInputPrompt(
-            currentTheme.data.inputPromptArray,
-        );
-        queryHuggingFaceTextGeneration(currentTheme.data.requestData).then(
-            (raw_result_text) => {
-                var result_text = parseGeneratedText(
-                    raw_result_text.generated_text,
-                    currentTheme.data.splitChar,
-                );
-                //console.log("loadBuffer result:", result_text);
-
-                if (result_text.startsWith(".")) {
-                    console.log("Skipping invalid result, loading again.");
-                    loadBuffer();
-                    return;
-                }
-                // step 1.5:  translate result_text to english cause the POS model is english-only
-                fetchTranslation(result_text).then((result_translation) => {
-                    //console.log("Translation result:", result_translation);
-
-                    // step 2:  fetch the POS (NOUN, VERB, etc.) for that (translated) text
-                    queryHuggingFaceTokenClassification({
-                        model: "vblagoje/bert-english-uncased-finetuned-pos",
-                        inputs: result_translation,
-                        provider: "auto",
-                    }).then((raw_result_pos) => {
-                        var result_pos = parsePosToKeywords(
-                            raw_result_pos,
-                            currentTheme.data.fallbackKeyword,
-                        );
-                        //console.log("POS result:", result_pos);
-                        // step 3: finally fetch images from pixabay for the POS keywords
-                        fetchPixabayImages(
-                            result_pos,
-                            currentTheme.data.fallbackKeyword,
-                        ).then((image_url) => {
-                            console.log("final buffer:", {
-                                text: result_text,
-                                pos: result_pos,
-                                image: image_url,
-                            });
-                            setGeneratedTextBuffer({
-                                text: result_text,
-                                pos: result_pos,
-                                image: image_url,
-                            });
-                            setIsBufferLoading(false);
-                        });
-                    });
-                });
-            },
-        );
-    };
-
-    const loadBufferWithoutPOS = () => {
-        setIsBufferLoading(true);
-        // step 1: first fetch the generated text (the main output)
-        currentTheme.data.requestData.inputs = createInputPrompt(
-            currentTheme.data.inputPromptArray,
-        );
-        queryHuggingFaceTextGeneration(currentTheme.data.requestData).then(
-            (raw_result_text) => {
-                var result_text = parseGeneratedText(
-                    raw_result_text.generated_text,
-                    currentTheme.data.splitChar,
-                );
-                //console.log("loadBuffer result:", result_text);
-
-                if (result_text.startsWith(".")) {
-                    console.log("Skipping invalid result, loading again.");
-                    loadBuffer();
-                    return;
-                }
-
-                fetchPixabayImages(
-                    currentTheme.data.keywords,
-                    currentTheme.data.fallbackKeyword,
-                ).then((image_url) => {
-                    console.log("final buffer:", {
-                        text: result_text,
-                        image: image_url,
-                    });
-                    setGeneratedTextBuffer({
-                        text: result_text,
-                        image: image_url,
-                    });
-                    setIsBufferLoading(false);
-                });
-            },
-        );
     };
 
     function setRandomFont() {

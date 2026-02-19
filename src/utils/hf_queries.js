@@ -13,7 +13,31 @@ export async function queryHuggingFaceTextGeneration(data) {
         }
 
         const result = await response.json();
-        return result;
+        return result.generated_text;
+    } catch (error) {
+        console.error("API call failed:", error);
+        // Fallback oder Error handling
+        throw error;
+    }
+}
+
+export async function queryHuggingFaceChatCompletion(data) {
+    try {
+        const response = await fetch("/.netlify/functions/hf_chat_completion", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log("Chat completion result:", result);
+        return result.choices[0].message.content;
     } catch (error) {
         console.error("API call failed:", error);
         // Fallback oder Error handling
@@ -46,3 +70,10 @@ export async function queryHuggingFaceTokenClassification(data) {
         throw error;
     }
 }
+
+// Map of available generators
+export const textGenerators = {
+    textGeneration: queryHuggingFaceTextGeneration,
+    chatCompletion: queryHuggingFaceChatCompletion,
+    // Add more as needed
+};

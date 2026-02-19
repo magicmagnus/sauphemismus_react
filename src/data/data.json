@@ -461,9 +461,10 @@
         "fonts": ["poppins"]
     },
     "justgptthings": {
+        "generatorType": "textGeneration",
         "requestData": {
             "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "featherless-ai",
+            "provider": "",
             "max_tokens": 70,
             "temperature": 1.1
         },

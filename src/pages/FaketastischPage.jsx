@@ -49,6 +49,7 @@ const FaketastischPage = () => {
                 `${currentFont}`
             }
         >
+            {/* buffer background image */}
             <BackgroundImage
                 currentTheme={currentTheme}
                 generatedTextBuffer={generatedTextBuffer}
@@ -56,14 +57,14 @@ const FaketastischPage = () => {
                 filter={"contrast(0.9) blur(2px) brightness(0.2)"}
             />
 
-            {/* content */}
-            <h1 className="mt-15 text-5xl font-extrabold text-shadow-black/80 text-shadow-md">
+            {/* title */}
+            <h1 className="mt-15 text-4xl font-bold text-shadow-black/80 text-shadow-md md:text-6xl 2xl:text-7xl md:landscape:mt-5 xl:landscape:mt-10 2xl:landscape:mt-15">
                 {currentTheme.data.pageTitle.toUpperCase()}
             </h1>
 
             <div
                 className={
-                    `relative flex h-85 w-85 flex-col items-center justify-center overflow-hidden rounded-md border-2 border-(--fred) p-6 ` +
+                    `relative flex h-85 w-85 flex-col items-center justify-center overflow-hidden rounded-md border-2 border-(--fred) p-6 md:scale-125 lg:landscape:scale-110 xl:landscape:scale-150 2xl:landscape:scale-200 ` +
                     `${fontSizeClass}`
                 }
             >
@@ -107,7 +108,7 @@ const FaketastischPage = () => {
 
             <GenerateButton
                 onClick={handleClickExtended}
-                buttonClassName="mb-15 rounded-md bg-(--fred) p-5 text-2xl font-bold shadow-md shadow-black/30  transition-all duration-200 ease-in-out hover:scale-105 "
+                buttonClassName="mb-15 md:mb-20 rounded-md bg-(--fred) p-5 text-2xl font-bold shadow-md shadow-black/30  transition-all duration-200 ease-in-out hover:scale-105  md:text-3xl 2xl:text-4xl md:px-8 md:py-7 2xl:px-10 2xl:py-9"
             >
                 {currentTheme.data.generateButtonText}
             </GenerateButton>
