@@ -11,6 +11,14 @@
     src: url("UCUcharlesscript.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: TimesNewRoman;
+    font-style: normal;
+    font-weight: 100 200 300 400 600 700 800 900;
+    font-display: swap;
+    src: url("times.ttf") format("truetype");
+}
+
 @keyframes typewriter-dots {
 
     0%,

@@ -1,7 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import GenerateButton from "../components/GenerateButton.jsx";
 import BackgroundImage from "../components/BackgroundImage.jsx";
-import { PulseLoader } from "react-spinners";
 
 const SprichworteLayout = () => {
     const {
