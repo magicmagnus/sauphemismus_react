@@ -3,6 +3,14 @@
 @plugin "flyonui";
 
 
+@font-face {
+    font-family: CharlesScript;
+    font-style: normal;
+    font-weight: 200 700;
+    font-display: swap;
+    src: url("UCUcharlesscript.ttf") format("truetype");
+}
+
 @keyframes typewriter-dots {
 
     0%,
@@ -37,14 +45,6 @@
     font-style: normal;
 }
 
-
-.bodoni-moda {
-    font-family: "Bodoni Moda", serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-}
-
 .bitter {
     font-family: "Bitter", serif;
     font-optical-sizing: auto;
@@ -70,12 +70,6 @@
     font-style: normal;
 }
 
-.italianno {
-    font-family: "Italianno", cursive;
-    font-weight: 700;
-    font-style: normal;
-}
-
 .parisienne {
     font-family: "Parisienne", cursive;
     font-weight: 700;
@@ -84,7 +78,7 @@
 
 .tangerine {
     font-family: "Tangerine", cursive;
-    font-weight: 700;
+    font-weight: 600;
     font-style: normal;
 }
 

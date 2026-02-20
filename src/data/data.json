@@ -130,13 +130,7 @@
         "needsPOSProcessing": true,
         "generateButtonText": "Erleuchte mich!",
         "pageTitle": "Sprichwörter",
-        "fonts": [
-            "josefin-slab",
-            "bodoni-moda",
-            "bitter",
-            "amatic-sc",
-            "yeseva-one"
-        ]
+        "fonts": ["josefin-slab", "bitter", "amatic-sc", "yeseva-one"]
     },
     "faketastisch": {
         "requestData": {
@@ -276,7 +270,6 @@
         "fonts": [
             "tangerine",
             "parisienne",
-            "italianno",
             "caveat",
             "indie-flower",
             "reeenie-beanie"
@@ -546,6 +539,6 @@
         "needsPOSProcessing": true,
         "generateButtonText": "more things!",
         "pageTitle": "justGPTthings",
-        "fonts": ["poppins"]
+        "fonts": ["font-[TimesNewRoman]"]
     }
 }
