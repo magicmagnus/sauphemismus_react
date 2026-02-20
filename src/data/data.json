@@ -539,6 +539,6 @@
         "needsPOSProcessing": true,
         "generateButtonText": "more things!",
         "pageTitle": "justGPTthings",
-        "fonts": ["font-[TimesNewRoman]"]
+        "fonts": ["font-[TimesExt]"]
     }
 }
