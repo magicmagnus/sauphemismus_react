@@ -23,9 +23,16 @@ exports.handler = async (event, context) => {
     try {
         const client = new InferenceClient(process.env.HUGGINGFACE_KEY);
         const requestData = JSON.parse(event.body);
-        console.log("Received request data:", requestData);
+        console.log(
+            "\n[HF_TEXT_GENERATION] Received request data:\n",
+            requestData,
+        );
 
         const output = await client.textGeneration(requestData);
+        console.log(
+            "\n[HF_TEXT_GENERATION] Text generation output:\n",
+            JSON.stringify(output),
+        );
 
         return {
             statusCode: 200,
@@ -33,13 +40,18 @@ exports.handler = async (event, context) => {
             body: JSON.stringify(output),
         };
     } catch (error) {
-        console.error("Function error:", error);
+        console.error(
+            "\n[HF_TEXT_GENERATION] Function error:\n",
+            error,
+            "\n[HF_TEXT_GENERATION] Error details:\n",
+            JSON.stringify(error),
+        );
         return {
             statusCode: 500,
             headers,
             body: JSON.stringify({
                 error: "Internal Server Error",
-                message: error.message,
+                message: error.httpResponse.body.error.message,
             }),
         };
     }

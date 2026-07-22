@@ -117,10 +117,10 @@ function MainLayout() {
                 loadBuffer, // Pass loadBuffer as retry callback
             );
 
-            console.log("final buffer:", result);
+            console.log("[MainLayout] final buffer:", result);
             setGeneratedTextBuffer(result);
         } catch (error) {
-            console.error("Buffer loading failed:", error);
+            console.error("[MainLayout] Buffer loading failed:", error);
         } finally {
             setIsBufferLoading(false);
         }

@@ -1,10 +1,12 @@
 {
     "sauphemismus": {
-        "requestData": {
-            "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "featherless-ai",
-            "max_tokens": 50,
-            "temperature": 0.9
+        "generatorType": "chatCompletion",
+        "chatRequest": {
+            "model": "gemini-3.1-flash-lite",
+            "generation_config": {
+                "temperature": 1.0,
+                "max_output_tokens": 90
+            }
         },
         "inputPromptArray": [
             "sich amtlich einen umzuhängen",
@@ -71,11 +73,13 @@
         "fonts": ["poppins"]
     },
     "sprichworte": {
-        "requestData": {
-            "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "featherless-ai",
-            "max_tokens": 50,
-            "temperature": 1.0
+        "generatorType": "chatCompletion",
+        "chatRequest": {
+            "model": "gemini-3.1-flash-lite",
+            "generation_config": {
+                "temperature": 1.5,
+                "max_output_tokens": 90
+            }
         },
         "inputPromptArray": [
             "Da wird der Hund in der Pfanne verrückt",
@@ -121,7 +125,9 @@
             "Glück ist ein warmer Handschuh in kalten Zeiten",
             "Die Fische muß man schröpfen",
             "Die dritte Person hört immer den Vogel singen",
-            "Spinnen haben kleine Münder"
+            "Spinnen haben kleine Münder",
+            "Wer A sagt, muss auch B sagen, aber wer B sagt, darf auch C denken.",
+            "Den Mund voll nehmen kann jeder, doch das Brot will erst gebacken sein"
         ],
         "splitChar": "*",
         "generatedTextSuffix": "",
@@ -133,11 +139,13 @@
         "fonts": ["josefin-slab", "bitter", "amatic-sc", "yeseva-one"]
     },
     "faketastisch": {
-        "requestData": {
-            "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "featherless-ai",
-            "max_tokens": 90,
-            "temperature": 0.7
+        "generatorType": "chatCompletion",
+        "chatRequest": {
+            "model": "gemini-3.1-flash-lite",
+            "generation_config": {
+                "temperature": 1.0,
+                "max_output_tokens": 90
+            }
         },
         "inputPromptArray": [
             "Die Trompete wurde nach ihrem Erfinder Pete Trom benannt",
@@ -190,11 +198,13 @@
         "fonts": ["noto-sans"]
     },
     "ausreden": {
-        "requestData": {
-            "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "featherless-ai",
-            "max_tokens": 70,
-            "temperature": 1.0
+        "generatorType": "chatCompletion",
+        "chatRequest": {
+            "model": "gemini-3.1-flash-lite",
+            "generation_config": {
+                "temperature": 1.0,
+                "max_output_tokens": 90
+            }
         },
         "inputPromptArray": [
             "ich muss leider auf meinen Hund aufpassen",
@@ -241,11 +251,13 @@
         "fonts": ["poppins"]
     },
     "bibelzitate": {
-        "requestData": {
-            "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "featherless-ai",
-            "max_tokens": 80,
-            "temperature": 0.9
+        "generatorType": "chatCompletion",
+        "chatRequest": {
+            "model": "gemini-3.1-flash-lite",
+            "generation_config": {
+                "temperature": 1.0,
+                "max_output_tokens": 90
+            }
         },
         "inputPromptArray": [
             "Vorallem behüte dein Herz, denn es hat den größten Einfluss auf dein Leben!",
@@ -276,11 +288,13 @@
         ]
     },
     "chessgpt": {
-        "requestData": {
-            "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "featherless-ai",
-            "max_tokens": 15,
-            "temperature": 1.0
+        "generatorType": "chatCompletion",
+        "chatRequest": {
+            "model": "gemini-3.1-flash-lite",
+            "generation_config": {
+                "temperature": 1.0,
+                "max_output_tokens": 90
+            }
         },
         "inputPromptArray": [
             "Orangutan",
@@ -338,11 +352,13 @@
         "fonts": ["noto-serif"]
     },
     "pilzfinder": {
-        "requestData": {
-            "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "featherless-ai",
-            "max_tokens": 15,
-            "temperature": 0.7
+        "generatorType": "chatCompletion",
+        "chatRequest": {
+            "model": "gemini-3.1-flash-lite",
+            "generation_config": {
+                "temperature": 1.0,
+                "max_output_tokens": 90
+            }
         },
         "inputPromptArray": [
             "Maronen Röhrling",
@@ -386,11 +402,13 @@
         "fonts": ["poppins"]
     },
     "sauphemismus_en": {
-        "requestData": {
-            "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "featherless-ai",
-            "max_tokens": 50,
-            "temperature": 0.8
+        "generatorType": "chatCompletion",
+        "chatRequest": {
+            "model": "gemini-3.1-flash-lite",
+            "generation_config": {
+                "temperature": 1.0,
+                "max_output_tokens": 90
+            }
         },
         "inputPromptArray": [
             "get drunk",
@@ -455,12 +473,13 @@
         "fonts": ["poppins"]
     },
     "justgptthings": {
-        "generatorType": "textGeneration",
-        "requestData": {
-            "model": "DiscoResearch/Llama3-German-8B",
-            "provider": "",
-            "max_tokens": 70,
-            "temperature": 1.1
+        "generatorType": "chatCompletion",
+        "chatRequest": {
+            "model": "gemini-3.1-flash-lite",
+            "generation_config": {
+                "temperature": 1.0,
+                "max_output_tokens": 90
+            }
         },
         "inputPromptArray": [
             "when boys wear beanies",

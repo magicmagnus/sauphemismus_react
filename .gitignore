@@ -27,3 +27,6 @@ dist-ssr
 .netlify
 
 .env
+
+hf_chat.ipynb
+test_fetch.js

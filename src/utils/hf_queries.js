@@ -9,13 +9,16 @@ export async function queryHuggingFaceTextGeneration(data) {
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(
+                `HTTP error! status: ${response.status} - ${response.statusText}`,
+            );
         }
 
         const result = await response.json();
+        console.log("[hf_queries] Text generation result:", result);
         return result.generated_text;
     } catch (error) {
-        console.error("API call failed:", error);
+        console.error("[hf_queries] API call failed:", error);
         // Fallback oder Error handling
         throw error;
     }
@@ -36,10 +39,10 @@ export async function queryHuggingFaceChatCompletion(data) {
         }
 
         const result = await response.json();
-        console.log("Chat completion result:", result);
-        return result.choices[0].message.content;
+        console.log("[hf_queries] Chat completion result:", result);
+        return result.output_text;
     } catch (error) {
-        console.error("API call failed:", error);
+        console.error("[hf_queries] API call failed:", JSON.stringify(error));
         // Fallback oder Error handling
         throw error;
     }
@@ -59,13 +62,15 @@ export async function queryHuggingFaceTokenClassification(data) {
         );
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(
+                `HTTP error! status: ${response.status} - ${response.statusText}`,
+            );
         }
 
         const result = await response.json();
         return result;
     } catch (error) {
-        console.error("API call failed:", error);
+        console.error("[hf_queries] API call failed:", JSON.stringify(error));
         // Fallback oder Error handling
         throw error;
     }
