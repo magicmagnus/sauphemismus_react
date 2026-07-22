@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "npm run build && npm install @google/genai && npm ls"
 
 # SPA redirect rules - this replaces your 404.html hack
 [[redirects]]
