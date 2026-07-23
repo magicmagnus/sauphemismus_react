@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build && npm install @google/genai && npm ls"
+  command = "npm run build"
 
 # SPA redirect rules - this replaces your 404.html hack
 [[redirects]]
@@ -45,4 +45,5 @@
 # functions settings
 [functions]
   directory = "netlify/functions"   
+  node_bundler = "esbuild"
    
