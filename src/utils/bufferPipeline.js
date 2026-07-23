@@ -36,20 +36,25 @@ async function stepGenerateText(context) {
         let chatRequest;
         chatRequest = {
             ...themeData.chatRequest,
-            input: [
-                {
-                    role: "system",
-                    content:
-                        "You are a helpful assistant that generates exactly one new example that matching the provided list of examples in tone, length and overall vibe. You only respond with the generated example and do not include any explanations or additional information. The generated example should be in the same language as the input prompt.",
-                },
-                {
-                    role: "user",
-                    content: createInputPrompt(themeData.inputPromptArray),
-                },
-            ]
-                .map((msg) => msg.content)
-                .join("\n"),
+            // input: [
+            //     {
+            //         role: "system",
+            //         content:
+            //             "You are a helpful assistant that generates exactly one new example that matching the provided list of examples in tone, length and overall vibe. You only respond with the generated example and do not include any explanations or additional information. The generated example should be in the same language as the input prompt.",
+            //     },
+            //     {
+            //         role: "user",
+            //         content: createInputPrompt(themeData.inputPromptArray),
+            //     },
+            // ]
+            //     .map((msg) => msg.content)
+            //     .join("\n"),
+            system_instruction:
+                "You are a helpful assistant that generates exactly one new example that matching the provided list of examples in tone, length and overall vibe. You only respond with the generated example and do not include any explanations or additional information. The generated example should be in the same language as the input prompt.",
+
+            input: createInputPrompt(themeData.inputPromptArray),
         };
+
         chatRequest.generation_config.seed = Math.floor(
             Math.random() * 1000000,
         ); // Add a random seed for variability
